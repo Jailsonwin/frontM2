@@ -6,7 +6,7 @@ const UserList = () => {
 
   useEffect(() => {
     axios
-      .get("/users")
+      .get("http://localhost:3001/users")
       .then((response) => {
         setUsers(response.data);
       })
@@ -29,10 +29,10 @@ const UserList = () => {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
+            <tr key={user.ID}>
+              <td>{user.ID}</td>
+              <td>{user.USUARIO}</td>
+              <td>{user.EMAIL}</td>
               {/* Add more columns if needed */}
             </tr>
           ))}

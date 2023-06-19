@@ -4,19 +4,21 @@ import axios from "axios";
 const CreateUser = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  // Add more state variables for other fields if needed
+  const [clienteId, setClienteId] = useState("");
+  const [senha, setSenha] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const newUser = {
-      name: name,
-      email: email,
-      // Add more fields as per the API requirements
+      CLIENTE_ID: clienteId,
+      USUARIO: name,
+      SENHA: senha,
+      EMAIL: email,
     };
 
     axios
-      .post("/users", newUser)
+      .post("http://localhost:3001/users", newUser)
       .then((response) => {
         console.log(response.data);
         // Handle success or show a success message
@@ -47,7 +49,22 @@ const CreateUser = () => {
             onChange={(event) => setEmail(event.target.value)}
           />
         </div>
-        {/* Add more input fields for other fields if needed */}
+        <div>
+          <label>Cliente ID:</label>
+          <input
+            type="text"
+            value={clienteId}
+            onChange={(event) => setClienteId(event.target.value)}
+          />
+        </div>
+        <div>
+          <label>Senha:</label>
+          <input
+            type="password"
+            value={senha}
+            onChange={(event) => setSenha(event.target.value)}
+          />
+        </div>
         <button type="submit">Create</button>
       </form>
     </div>

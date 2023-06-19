@@ -6,7 +6,7 @@ const ProductList = () => {
 
   useEffect(() => {
     axios
-      .get("/products")
+      .get("http://localhost:3001/products")
       .then((response) => {
         setProducts(response.data);
       })
@@ -30,9 +30,9 @@ const ProductList = () => {
         <tbody>
           {products.map((product) => (
             <tr key={product.id}>
-              <td>{product.id}</td>
-              <td>{product.name}</td>
-              <td>{product.price}</td>
+              <td>{product.ID}</td>
+              <td>{product.NOME}</td>
+              <td>{product.PRECO}</td>
               {/* Add more columns if needed */}
             </tr>
           ))}

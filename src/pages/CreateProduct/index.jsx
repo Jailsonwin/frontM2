@@ -10,13 +10,14 @@ const CreateProduct = () => {
     event.preventDefault();
 
     const newProduct = {
-      name: name,
-      price: price,
+      NOME: name,
+      DESCRICAO: "", // Add description field if needed
+      PRECO: price,
       // Add more fields as per the API requirements
     };
 
     axios
-      .post("/products", newProduct)
+      .post("http://localhost:3001/products", newProduct)
       .then((response) => {
         console.log(response.data);
         // Handle success or show a success message

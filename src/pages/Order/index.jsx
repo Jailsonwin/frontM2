@@ -6,7 +6,7 @@ const OrderList = () => {
 
   useEffect(() => {
     axios
-      .get("/orders")
+      .get("http://localhost:3001/order")
       .then((response) => {
         setOrders(response.data);
       })
@@ -31,7 +31,7 @@ const OrderList = () => {
           {orders.map((order) => (
             <tr key={order.id}>
               <td>{order.id}</td>
-              <td>{order.userId}</td>
+              <td>{order.CLIENTE_ID}</td>
               <td>{order.date}</td>
               {/* Add more columns if needed */}
             </tr>

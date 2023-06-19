@@ -4,19 +4,19 @@ import axios from "axios";
 const CreateOrder = () => {
   const [userId, setUserId] = useState("");
   const [date, setDate] = useState("");
-  // Add more state variables for other fields if needed
+  const [valorTotal, setValorTotal] = useState("");
+  const [clienteId, setClienteId] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const newOrder = {
-      userId: userId,
-      date: date,
-      // Add more fields as per the API requirements
+      VALOR_TOTAL: valorTotal,
+      CLIENTE_ID: clienteId,
     };
 
     axios
-      .post("/orders", newOrder)
+      .post("http://localhost:3001/order", newOrder)
       .then((response) => {
         console.log(response.data);
         // Handle success or show a success message
@@ -47,7 +47,22 @@ const CreateOrder = () => {
             onChange={(event) => setDate(event.target.value)}
           />
         </div>
-        {/* Add more input fields for other fields if needed */}
+        <div>
+          <label>Valor Total:</label>
+          <input
+            type="text"
+            value={valorTotal}
+            onChange={(event) => setValorTotal(event.target.value)}
+          />
+        </div>
+        <div>
+          <label>Cliente ID:</label>
+          <input
+            type="text"
+            value={clienteId}
+            onChange={(event) => setClienteId(event.target.value)}
+          />
+        </div>
         <button type="submit">Create</button>
       </form>
     </div>

@@ -6,7 +6,7 @@ const ClientList = () => {
 
   useEffect(() => {
     axios
-      .get("/clients")
+      .get("http://localhost:3001/clients")
       .then((response) => {
         setClients(response.data);
       })
@@ -31,8 +31,8 @@ const ClientList = () => {
           {clients.map((client) => (
             <tr key={client.id}>
               <td>{client.id}</td>
-              <td>{client.name}</td>
-              <td>{client.email}</td>
+              <td>{client.NOME}</td>
+              <td>{client.EMAIL}</td>
               {/* Add more columns if needed */}
             </tr>
           ))}

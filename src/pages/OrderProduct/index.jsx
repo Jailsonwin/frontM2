@@ -6,7 +6,7 @@ const OrderProductList = () => {
 
   useEffect(() => {
     axios
-      .get("/order-products")
+      .get("http://localhost:3001/orderproduct")
       .then((response) => {
         setOrderProducts(response.data);
       })
@@ -24,16 +24,18 @@ const OrderProductList = () => {
             <th>ID</th>
             <th>Order ID</th>
             <th>Product ID</th>
-            {/* Add more columns if needed */}
+            <th>Quantity</th>
+            <th>Unit Price</th>
           </tr>
         </thead>
         <tbody>
           {orderProducts.map((orderProduct) => (
             <tr key={orderProduct.id}>
               <td>{orderProduct.id}</td>
-              <td>{orderProduct.orderId}</td>
-              <td>{orderProduct.productId}</td>
-              {/* Add more columns if needed */}
+              <td>{orderProduct.PEDIDO_ID}</td>
+              <td>{orderProduct.PRODUTO_ID}</td>
+              <td>{orderProduct.QUANTIDADE}</td>
+              <td>{orderProduct.VALOR_UNITARIO}</td>
             </tr>
           ))}
         </tbody>

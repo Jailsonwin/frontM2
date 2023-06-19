@@ -10,13 +10,13 @@ const CreateClient = () => {
     event.preventDefault();
 
     const newClient = {
-      name: name,
-      email: email,
+      NOME: name,
+      EMAIL: email,
       // Add more fields as per the API requirements
     };
 
     axios
-      .post("/clients", newClient)
+      .post("http://localhost:3001/clients", newClient)
       .then((response) => {
         console.log(response.data);
         // Handle success or show a success message
