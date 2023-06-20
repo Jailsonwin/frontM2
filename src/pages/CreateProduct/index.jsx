@@ -4,6 +4,7 @@ import axios from "axios";
 const CreateProduct = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
+  const [descricao, setDescricao] = useState("");
   // Add more state variables for other fields if needed
 
   const handleSubmit = (event) => {
@@ -11,7 +12,7 @@ const CreateProduct = () => {
 
     const newProduct = {
       NOME: name,
-      DESCRICAO: "", // Add description field if needed
+      DESCRICAO: descricao, // Add description field if needed
       PRECO: price,
       // Add more fields as per the API requirements
     };
@@ -38,6 +39,14 @@ const CreateProduct = () => {
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
+          />
+        </div>
+        <div>
+          <label>Description:</label>
+          <input
+            type="text"
+            value={descricao}
+            onChange={(event) => setDescricao(event.target.value)}
           />
         </div>
         <div>
